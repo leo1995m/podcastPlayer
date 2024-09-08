@@ -8,14 +8,12 @@
 
 /* Begin PBXBuildFile section */
 		45C39A0D2C8E13C60012F07F /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45C39A0C2C8E13C60012F07F /* AppDelegate.swift */; };
-		45C39A0F2C8E13C60012F07F /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45C39A0E2C8E13C60012F07F /* SceneDelegate.swift */; };
 		45C39A112C8E13C60012F07F /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45C39A102C8E13C60012F07F /* ViewController.swift */; };
-		45C39A142C8E13C60012F07F /* Base in Resources */ = {isa = PBXBuildFile; fileRef = 45C39A132C8E13C60012F07F /* Base */; };
 		45C39A162C8E13CA0012F07F /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 45C39A152C8E13CA0012F07F /* Assets.xcassets */; };
-		45C39A192C8E13CA0012F07F /* Base in Resources */ = {isa = PBXBuildFile; fileRef = 45C39A182C8E13CA0012F07F /* Base */; };
 		45C39A242C8E13CB0012F07F /* podcastPlayerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45C39A232C8E13CB0012F07F /* podcastPlayerTests.swift */; };
 		45C39A2E2C8E13CB0012F07F /* podcastPlayerUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45C39A2D2C8E13CB0012F07F /* podcastPlayerUITests.swift */; };
 		45C39A302C8E13CB0012F07F /* podcastPlayerUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45C39A2F2C8E13CB0012F07F /* podcastPlayerUITestsLaunchTests.swift */; };
+		45C39A3D2C8E186E0012F07F /* InitialVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45C39A3C2C8E186E0012F07F /* InitialVC.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -38,17 +36,15 @@
 /* Begin PBXFileReference section */
 		45C39A092C8E13C60012F07F /* podcastPlayer.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = podcastPlayer.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		45C39A0C2C8E13C60012F07F /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		45C39A0E2C8E13C60012F07F /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
 		45C39A102C8E13C60012F07F /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
-		45C39A132C8E13C60012F07F /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		45C39A152C8E13CA0012F07F /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
-		45C39A182C8E13CA0012F07F /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		45C39A1A2C8E13CA0012F07F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		45C39A1F2C8E13CB0012F07F /* podcastPlayerTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = podcastPlayerTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		45C39A232C8E13CB0012F07F /* podcastPlayerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = podcastPlayerTests.swift; sourceTree = "<group>"; };
 		45C39A292C8E13CB0012F07F /* podcastPlayerUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = podcastPlayerUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		45C39A2D2C8E13CB0012F07F /* podcastPlayerUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = podcastPlayerUITests.swift; sourceTree = "<group>"; };
 		45C39A2F2C8E13CB0012F07F /* podcastPlayerUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = podcastPlayerUITestsLaunchTests.swift; sourceTree = "<group>"; };
+		45C39A3C2C8E186E0012F07F /* InitialVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InitialVC.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -100,12 +96,10 @@
 			isa = PBXGroup;
 			children = (
 				45C39A0C2C8E13C60012F07F /* AppDelegate.swift */,
-				45C39A0E2C8E13C60012F07F /* SceneDelegate.swift */,
 				45C39A102C8E13C60012F07F /* ViewController.swift */,
-				45C39A122C8E13C60012F07F /* Main.storyboard */,
 				45C39A152C8E13CA0012F07F /* Assets.xcassets */,
-				45C39A172C8E13CA0012F07F /* LaunchScreen.storyboard */,
 				45C39A1A2C8E13CA0012F07F /* Info.plist */,
+				45C39A3C2C8E186E0012F07F /* InitialVC.swift */,
 			);
 			path = podcastPlayer;
 			sourceTree = "<group>";
@@ -232,8 +226,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				45C39A162C8E13CA0012F07F /* Assets.xcassets in Resources */,
-				45C39A192C8E13CA0012F07F /* Base in Resources */,
-				45C39A142C8E13C60012F07F /* Base in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -258,9 +250,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				45C39A3D2C8E186E0012F07F /* InitialVC.swift in Sources */,
 				45C39A112C8E13C60012F07F /* ViewController.swift in Sources */,
 				45C39A0D2C8E13C60012F07F /* AppDelegate.swift in Sources */,
-				45C39A0F2C8E13C60012F07F /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -295,25 +287,6 @@
 			targetProxy = 45C39A2A2C8E13CB0012F07F /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
-
-/* Begin PBXVariantGroup section */
-		45C39A122C8E13C60012F07F /* Main.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				45C39A132C8E13C60012F07F /* Base */,
-			);
-			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
-		45C39A172C8E13CA0012F07F /* LaunchScreen.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				45C39A182C8E13CA0012F07F /* Base */,
-			);
-			name = LaunchScreen.storyboard;
-			sourceTree = "<group>";
-		};
-/* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
 		45C39A312C8E13CB0012F07F /* Debug */ = {
@@ -447,9 +420,9 @@
 				INFOPLIST_FILE = podcastPlayer/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
-				INFOPLIST_KEY_UIMainStoryboardFile = Main;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -475,9 +448,9 @@
 				INFOPLIST_FILE = podcastPlayer/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
-				INFOPLIST_KEY_UIMainStoryboardFile = Main;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
