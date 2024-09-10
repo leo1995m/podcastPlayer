@@ -11,7 +11,7 @@ class PodcastEnterViewModel {
     
     private let historyKey = "PodcastUrlHistory"
     let historyLimit: Int
-    var podcasts: [PodcastModel] = []
+    var podcast: PodcastModel?
     
     var urlHistory: [String] {
         get {
@@ -54,7 +54,7 @@ class PodcastEnterViewModel {
                completion(false)
                 return
             }
-            self?.podcasts.append(podcast)
+            self?.podcast = podcast
             completion(true)
         }
     }
