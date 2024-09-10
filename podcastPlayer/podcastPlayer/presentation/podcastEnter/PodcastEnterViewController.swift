@@ -8,7 +8,7 @@
 import Foundation
 import UIKit
 
-class PodcastEnterViewController:  UIViewController, UITableViewDelegate, UITableViewDataSource {
+class PodcastEnterViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
     
     private let viewModel: PodcastEnterViewModel
     
@@ -111,7 +111,6 @@ class PodcastEnterViewController:  UIViewController, UITableViewDelegate, UITabl
         historyTableView.delegate = self
         historyTableView.dataSource = self
         historyTableView.register(PodcastEnterHistoryTableViewCell.self, forCellReuseIdentifier: "UrlHistoryCell")
-        
     }
     
     private func setupView() {
@@ -132,8 +131,7 @@ class PodcastEnterViewController:  UIViewController, UITableViewDelegate, UITabl
     }
     
     private func setupConstraints() {
-        
-        
+
         NSLayoutConstraint.activate([
             podcastImageView.centerXAnchor.constraint(equalTo: view.centerXAnchor),
             podcastImageView.centerYAnchor.constraint(equalTo: view.centerYAnchor, constant: -120),
@@ -184,7 +182,7 @@ class PodcastEnterViewController:  UIViewController, UITableViewDelegate, UITabl
                     self?.historyLabel.isHidden = false
                     self?.viewModel.addUrlToHistory(url)
                     self?.historyTableView.reloadData()
-                    self?.navigateToNextPage(with: url)
+                    self?.navigateToNextPage()
                 } else {
                     self?.showAlert("Atenção", "Por favor verifique a URL e tente novamente.")
                 }
@@ -201,9 +199,13 @@ class PodcastEnterViewController:  UIViewController, UITableViewDelegate, UITabl
         present(alertController, animated: true)
     }
     
-    private func navigateToNextPage(with url: String) {
-        let nextViewController = InitialVC(url: url)
-        navigationController?.pushViewController(nextViewController, animated: true)
+    private func navigateToNextPage() {
+        guard let podcast = viewModel.podcast else {
+            return
+        }
+        let podcastDetailViewModel = PodcastDetailViewModel(podcast: podcast)
+               let podcastDetailViewController = PodcastDetailViewController(viewModel: podcastDetailViewModel)
+               navigationController?.pushViewController(podcastDetailViewController, animated: true)
     }
     
     
@@ -226,7 +228,19 @@ class PodcastEnterViewController:  UIViewController, UITableViewDelegate, UITabl
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         if let selectedUrl = viewModel.getUrl(at: indexPath.row) {
-            navigateToNextPage(with: selectedUrl)
+            loadingView.startAnimating()
+            viewModel.fetchPodcasts(url: selectedUrl) { [weak self] success in
+                
+                DispatchQueue.main.async {
+                    self?.loadingView.stopAnimating()
+                    
+                    if success {
+                        self?.navigateToNextPage()
+                    } else {
+                        self?.showAlert("Aviso", "Ocorreu um erro ao carregar o podcast selecionado")
+                    }
+                }
+            }
         }
     }
 }
