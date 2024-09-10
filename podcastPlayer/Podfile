@@ -6,6 +6,7 @@ target 'podcastPlayer' do
  
   pod 'FeedKit', '9.1.2'
   pod 'Kingfisher' , '7.12.0'
+  pod 'KingfisherWebP'
 
 end
 

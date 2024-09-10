@@ -1,20 +1,40 @@
 PODS:
   - FeedKit (9.1.2)
   - Kingfisher (7.12.0)
+  - KingfisherWebP (1.6.0):
+    - Kingfisher (~> 7.11)
+    - libwebp (>= 1.1.0)
+  - libwebp (1.3.2):
+    - libwebp/demux (= 1.3.2)
+    - libwebp/mux (= 1.3.2)
+    - libwebp/sharpyuv (= 1.3.2)
+    - libwebp/webp (= 1.3.2)
+  - libwebp/demux (1.3.2):
+    - libwebp/webp
+  - libwebp/mux (1.3.2):
+    - libwebp/demux
+  - libwebp/sharpyuv (1.3.2)
+  - libwebp/webp (1.3.2):
+    - libwebp/sharpyuv
 
 DEPENDENCIES:
   - FeedKit (= 9.1.2)
   - Kingfisher (= 7.12.0)
+  - KingfisherWebP
 
 SPEC REPOS:
   trunk:
     - FeedKit
     - Kingfisher
+    - KingfisherWebP
+    - libwebp
 
 SPEC CHECKSUMS:
   FeedKit: 71653273ab08e618cd6fd1301ca08fc02dca6a9e
   Kingfisher: 53a10ea35051a436b5fb626ca2dd8f3144d755e9
+  KingfisherWebP: bdd91652bb317f976bee2ca192d6a9bb35603026
+  libwebp: 1786c9f4ff8a279e4dac1e8f385004d5fc253009
 
-PODFILE CHECKSUM: 1057a720b2dbdd506013908aec0fb12ec32de35f
+PODFILE CHECKSUM: 90de9441337a67a907c3b11df5c17fbf442b201b
 
 COCOAPODS: 1.15.2

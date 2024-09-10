@@ -1,3 +1,5 @@
 ${PODS_ROOT}/Target Support Files/Pods-podcastPlayer/Pods-podcastPlayer-frameworks.sh
 ${BUILT_PRODUCTS_DIR}/FeedKit/FeedKit.framework
 ${BUILT_PRODUCTS_DIR}/Kingfisher/Kingfisher.framework
+${BUILT_PRODUCTS_DIR}/KingfisherWebP/KingfisherWebP.framework
+${BUILT_PRODUCTS_DIR}/libwebp/libwebp.framework
