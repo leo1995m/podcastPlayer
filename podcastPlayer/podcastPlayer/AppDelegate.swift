@@ -17,9 +17,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
         window = UIWindow(frame: UIScreen.main.bounds)
         
-        let initialVC = InitialVC()
+        let podcastEnterViewController = PodcastEnterViewController(viewModel: PodcastEnterViewModel())
         
-        let navigationController = UINavigationController(rootViewController: initialVC)
+        let navigationController = UINavigationController(rootViewController: podcastEnterViewController)
         
         window?.rootViewController = navigationController
         
