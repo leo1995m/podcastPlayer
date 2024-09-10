@@ -28,15 +28,18 @@ class RSSParser {
                     
                     EpisodeModel(title: item.title,
                                  imageURL: item.iTunes?.iTunesImage?.attributes?.href,
-                                 description:  item.description,
+                                 description: item.description,
                                  author: item.author,
                                  duration: TimeInterval(item.iTunes?.iTunesDuration ?? 0),
                                  audioURL: item.enclosure?.attributes?.url)
         
                 } ?? []
                 
+               
                 let podcast = PodcastModel(title: rssFeed.title,
+                                           image: rssFeed.image?.url,
                                            description: rssFeed.description,
+                                           iTunesCategories: rssFeed.iTunes?.iTunesCategories,
                                            episodes: episodes)
                 completion(podcast)
                 
