@@ -18,6 +18,12 @@
 		45ABA1E42C90F0A300AD7162 /* numberOfLines.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45ABA1E32C90F0A300AD7162 /* numberOfLines.swift */; };
 		45ABA1E72C91020700AD7162 /* PodcastDescriptionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45ABA1E62C91020700AD7162 /* PodcastDescriptionViewController.swift */; };
 		45ABA1E92C91021B00AD7162 /* PodcastDescriptionViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45ABA1E82C91021B00AD7162 /* PodcastDescriptionViewModel.swift */; };
+		45ABA1EE2C911F0400AD7162 /* PodcastPlayerViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45ABA1ED2C911F0400AD7162 /* PodcastPlayerViewModel.swift */; };
+		45ABA1F22C913C0500AD7162 /* PodcastMiniPlayerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45ABA1F12C913C0500AD7162 /* PodcastMiniPlayerView.swift */; };
+		45ABA1F42C913C2100AD7162 /* MiniPlayerViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45ABA1F32C913C2100AD7162 /* MiniPlayerViewModel.swift */; };
+		45ABA1F82C91C1A400AD7162 /* PodcastFullPlayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45ABA1F72C91C1A400AD7162 /* PodcastFullPlayer.swift */; };
+		45ABA1FA2C91C4BD00AD7162 /* PlayerManagerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45ABA1F92C91C4BC00AD7162 /* PlayerManagerViewController.swift */; };
+		45ABA1FF2C92480100AD7162 /* AudioPlayerManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45ABA1FE2C92480100AD7162 /* AudioPlayerManager.swift */; };
 		45C39A0D2C8E13C60012F07F /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45C39A0C2C8E13C60012F07F /* AppDelegate.swift */; };
 		45C39A162C8E13CA0012F07F /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 45C39A152C8E13CA0012F07F /* Assets.xcassets */; };
 		45C39A242C8E13CB0012F07F /* podcastPlayerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45C39A232C8E13CB0012F07F /* podcastPlayerTests.swift */; };
@@ -62,6 +68,12 @@
 		45ABA1E32C90F0A300AD7162 /* numberOfLines.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = numberOfLines.swift; sourceTree = "<group>"; };
 		45ABA1E62C91020700AD7162 /* PodcastDescriptionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PodcastDescriptionViewController.swift; sourceTree = "<group>"; };
 		45ABA1E82C91021B00AD7162 /* PodcastDescriptionViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PodcastDescriptionViewModel.swift; sourceTree = "<group>"; };
+		45ABA1ED2C911F0400AD7162 /* PodcastPlayerViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PodcastPlayerViewModel.swift; sourceTree = "<group>"; };
+		45ABA1F12C913C0500AD7162 /* PodcastMiniPlayerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PodcastMiniPlayerView.swift; sourceTree = "<group>"; };
+		45ABA1F32C913C2100AD7162 /* MiniPlayerViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MiniPlayerViewModel.swift; sourceTree = "<group>"; };
+		45ABA1F72C91C1A400AD7162 /* PodcastFullPlayer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PodcastFullPlayer.swift; sourceTree = "<group>"; };
+		45ABA1F92C91C4BC00AD7162 /* PlayerManagerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayerManagerViewController.swift; sourceTree = "<group>"; };
+		45ABA1FE2C92480100AD7162 /* AudioPlayerManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AudioPlayerManager.swift; sourceTree = "<group>"; };
 		45C39A092C8E13C60012F07F /* podcastPlayer.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = podcastPlayer.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		45C39A0C2C8E13C60012F07F /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		45C39A152C8E13CA0012F07F /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -175,6 +187,19 @@
 			path = podcastDescription;
 			sourceTree = "<group>";
 		};
+		45ABA1EA2C9114D700AD7162 /* podcastPlayer */ = {
+			isa = PBXGroup;
+			children = (
+				45ABA1F72C91C1A400AD7162 /* PodcastFullPlayer.swift */,
+				45ABA1ED2C911F0400AD7162 /* PodcastPlayerViewModel.swift */,
+				45ABA1F12C913C0500AD7162 /* PodcastMiniPlayerView.swift */,
+				45ABA1F32C913C2100AD7162 /* MiniPlayerViewModel.swift */,
+				45ABA1F92C91C4BC00AD7162 /* PlayerManagerViewController.swift */,
+				45ABA1FE2C92480100AD7162 /* AudioPlayerManager.swift */,
+			);
+			path = podcastPlayer;
+			sourceTree = "<group>";
+		};
 		45C39A002C8E13C60012F07F = {
 			isa = PBXGroup;
 			children = (
@@ -251,6 +276,7 @@
 		45C39A422C8E24940012F07F /* presentation */ = {
 			isa = PBXGroup;
 			children = (
+				45ABA1EA2C9114D700AD7162 /* podcastPlayer */,
 				45ABA1E52C91017700AD7162 /* podcastDescription */,
 				45ABA1D02C8FCD2300AD7162 /* podcastDetail */,
 				45C39A432C8E29D10012F07F /* podcastEnter */,
@@ -451,14 +477,18 @@
 			files = (
 				45C39A4B2C8E82950012F07F /* PodcastModel.swift in Sources */,
 				45C39A512C8E873D0012F07F /* RSSParser.swift in Sources */,
+				45ABA1F22C913C0500AD7162 /* PodcastMiniPlayerView.swift in Sources */,
 				45ABA1E92C91021B00AD7162 /* PodcastDescriptionViewModel.swift in Sources */,
 				45C39A452C8E2A130012F07F /* PodcastEnterViewController.swift in Sources */,
 				45ABA1E42C90F0A300AD7162 /* numberOfLines.swift in Sources */,
 				45ABA1DB2C907D6800AD7162 /* PodcastHeaderView.swift in Sources */,
+				45ABA1F82C91C1A400AD7162 /* PodcastFullPlayer.swift in Sources */,
 				45ABA1D92C8FECB800AD7162 /* CachedImage.swift in Sources */,
 				45C39A492C8E33680012F07F /* PodcastEnterHistoryTableViewCell.swift in Sources */,
+				45ABA1FA2C91C4BD00AD7162 /* PlayerManagerViewController.swift in Sources */,
 				45ABA1D42C8FCE4000AD7162 /* PodcastDetailViewModel.swift in Sources */,
 				45C39A3D2C8E186E0012F07F /* InitialVC.swift in Sources */,
+				45ABA1FF2C92480100AD7162 /* AudioPlayerManager.swift in Sources */,
 				45ABA1E72C91020700AD7162 /* PodcastDescriptionViewController.swift in Sources */,
 				45C39A4D2C8E82A40012F07F /* EpisodeModel.swift in Sources */,
 				45C39A532C8E87E30012F07F /* CacheManager.swift in Sources */,
@@ -466,8 +496,10 @@
 				45ABA1E22C90996100AD7162 /* formatTimeInterval.swift in Sources */,
 				45C39A472C8E2DD10012F07F /* PodcastEntreViewModel.swift in Sources */,
 				45C39A4F2C8E84E00012F07F /* PodcastService.swift in Sources */,
+				45ABA1EE2C911F0400AD7162 /* PodcastPlayerViewModel.swift in Sources */,
 				45ABA1DF2C908F3C00AD7162 /* RemoveHTMLTag.swift in Sources */,
 				45ABA1D22C8FCE3000AD7162 /* PodcastDetailViewController.swift in Sources */,
+				45ABA1F42C913C2100AD7162 /* MiniPlayerViewModel.swift in Sources */,
 				45C39A0D2C8E13C60012F07F /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -639,7 +671,7 @@
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -668,7 +700,7 @@
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",

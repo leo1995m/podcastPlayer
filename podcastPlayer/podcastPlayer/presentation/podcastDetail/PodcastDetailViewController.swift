@@ -7,10 +7,12 @@
 
 import Foundation
 import UIKit
+import AVFoundation
 
-class PodcastDetailViewController: UIViewController, UITableViewDelegate, UITableViewDataSource{
+class PodcastDetailViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
     
     private let viewModel: PodcastDetailViewModel
+    private var playerManager: PlayerManagerViewController?
     
     private lazy var titleLabel: UILabel = {
         let label = UILabel()
@@ -112,8 +114,23 @@ class PodcastDetailViewController: UIViewController, UITableViewDelegate, UITabl
     // MARK: - UITableViewDelegate
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-//        TODO: Go to next page
+        openFullPlayer(selectedIndex: indexPath.row)
     }
+}
+
+// MARK: - Extensions
+
+extension PodcastDetailViewController {
+    private func openFullPlayer(selectedIndex: Int) {
+        guard let episodes = viewModel.podcast?.episodes else { return }
+        playerManager = PlayerManagerViewController(episodes: episodes, selectedIndex: selectedIndex)
+        playerManager?.presentFullPlayer(from: self, delegate: self)
+    }
+    
+    private func openMiniPlayer(currentEpisode: EpisodeModel, isPlaying: Bool, image: UIImage) {
+        playerManager?.showMiniPlayer(delegate: self, currentEpisode: currentEpisode, isPlaying: isPlaying, image: image)
+    }
+    
 }
 
 extension PodcastDetailViewController: PodcastHeaderViewProtocol {
@@ -127,4 +144,15 @@ extension PodcastDetailViewController: PodcastHeaderViewProtocol {
     }
 }
 
+extension PodcastDetailViewController: PodcastPlayerProtocol {
+  
+    func didDismissView(currentEpisode: EpisodeModel, isPlaying: Bool, image: UIImage) {
+        openMiniPlayer(currentEpisode: currentEpisode, isPlaying: isPlaying, image: image)
+    }
+}
 
+extension PodcastDetailViewController: MiniPlayerProtocol {
+    func didTapMiniPlayer() {
+        playerManager?.presentFullFromMiniPlayer(from: self)
+    }
+}
