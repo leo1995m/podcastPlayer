@@ -94,11 +94,35 @@ class PodcastEnterViewController: UIViewController, UITableViewDelegate, UITable
         let tapGesture = UITapGestureRecognizer(target: self, action: #selector(dismissKeyboard))
         tapGesture.cancelsTouchesInView = false
         view.addGestureRecognizer(tapGesture)
-        
+        setupRightBarButton()
         setupLoadingIndicator()
         setupTableView()
         setupView()
         setupConstraints()
+    }
+    
+    private func setupRightBarButton() {
+        let settingsIcon = UIImage(systemName: "gearshape")
+        let settingsButton = UIBarButtonItem(image: settingsIcon, style: .plain, target: self, action: nil)
+        navigationItem.rightBarButtonItem = settingsButton
+        settingsButton.menu = createContextMenu()
+    }
+    
+    func createContextMenu() -> UIMenu {
+        let cleanAction = UIAction(title: "Limpar cache", image: UIImage(systemName: "trash")) { action in
+            let cacheManager = CacheManager()
+            cacheManager.clearCache() {  [weak self] success in
+                if success {
+                    self?.showAlert(nil, "Cache limpo com sucesso!")
+                } else {
+                    self?.showAlert("Atenção", "Erro ao limpar o Cache.")
+                }
+                
+            }
+        }
+        
+        let menu = UIMenu(title: "Configurações", children: [cleanAction])
+        return menu
     }
     
     private func setupLoadingIndicator(){
@@ -131,7 +155,7 @@ class PodcastEnterViewController: UIViewController, UITableViewDelegate, UITable
     }
     
     private func setupConstraints() {
-
+        
         NSLayoutConstraint.activate([
             podcastImageView.centerXAnchor.constraint(equalTo: view.centerXAnchor),
             podcastImageView.centerYAnchor.constraint(equalTo: view.centerYAnchor, constant: -120),
@@ -193,7 +217,7 @@ class PodcastEnterViewController: UIViewController, UITableViewDelegate, UITable
         view.endEditing(true)
     }
     
-    private func showAlert(_ title: String, _ message: String) {
+    private func showAlert(_ title: String?, _ message: String) {
         let alertController = UIAlertController(title: title, message: message, preferredStyle: .alert)
         alertController.addAction(UIAlertAction(title: "OK", style: .default))
         present(alertController, animated: true)
@@ -204,8 +228,8 @@ class PodcastEnterViewController: UIViewController, UITableViewDelegate, UITable
             return
         }
         let podcastDetailViewModel = PodcastDetailViewModel(podcast: podcast)
-               let podcastDetailViewController = PodcastDetailViewController(viewModel: podcastDetailViewModel)
-               navigationController?.pushViewController(podcastDetailViewController, animated: true)
+        let podcastDetailViewController = PodcastDetailViewController(viewModel: podcastDetailViewModel)
+        navigationController?.pushViewController(podcastDetailViewController, animated: true)
     }
     
     
@@ -244,3 +268,4 @@ class PodcastEnterViewController: UIViewController, UITableViewDelegate, UITable
         }
     }
 }
+
