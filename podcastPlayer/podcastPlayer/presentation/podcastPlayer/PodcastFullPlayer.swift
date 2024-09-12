@@ -60,7 +60,7 @@ class PodcastFullPlayer: UIViewController, UISheetPresentationControllerDelegate
         let button = UIButton()
         button.translatesAutoresizingMaskIntoConstraints = false
         button.tintColor = .systemIndigo
-        let image = UIImage(systemName: "pause",withConfiguration: UIImage.SymbolConfiguration(pointSize: 34,weight: .regular))
+        let image = UIImage(systemName: "pause.fill",withConfiguration: UIImage.SymbolConfiguration(pointSize: 34,weight: .regular))
         button.setImage(image, for: .normal)
         return button
     }()
@@ -227,7 +227,7 @@ class PodcastFullPlayer: UIViewController, UISheetPresentationControllerDelegate
         }
         
         viewModel.player?.play()
-        playPauseButton.setImage(UIImage(systemName: "pause",withConfiguration: UIImage.SymbolConfiguration(pointSize: 34,weight: .regular)), for: .normal)
+        playPauseButton.setImage(UIImage(systemName: "pause.fill",withConfiguration: UIImage.SymbolConfiguration(pointSize: 34,weight: .regular)), for: .normal)
         
         let interval = CMTime(seconds: 1, preferredTimescale: CMTimeScale(NSEC_PER_SEC))
         viewModel.player?.addPeriodicTimeObserver(forInterval: interval, queue: .main) { [weak self] time in
@@ -256,7 +256,7 @@ class PodcastFullPlayer: UIViewController, UISheetPresentationControllerDelegate
     }
     
     @objc private func didTapPlayPause() {
-        let pause = UIImage(systemName: "pause",withConfiguration: UIImage.SymbolConfiguration(pointSize: 34,weight: .regular))
+        let pause = UIImage(systemName: "pause.fill",withConfiguration: UIImage.SymbolConfiguration(pointSize: 34,weight: .regular))
         let play = UIImage(systemName: "play.fill",withConfiguration: UIImage.SymbolConfiguration(pointSize: 34,weight: .regular))
         
         if viewModel.isPlaying {
