@@ -22,7 +22,7 @@ final class PodcastHeaderView: UIView {
     private lazy var container: UIView = {
         let view = UIView()
         view.translatesAutoresizingMaskIntoConstraints = false
-        view.backgroundColor = UIColor.systemGray6
+        view.backgroundColor = .systemGray6
         return view
     }()
     
@@ -51,7 +51,7 @@ final class PodcastHeaderView: UIView {
     private lazy var showMoreLabel: UILabel = {
         let label = UILabel()
         label.text = "Ver Mais"
-        label.textColor = .systemBlue
+        label.textColor = .systemIndigo
         label.font = UIFont.systemFont(ofSize: 14, weight: .medium)
         label.isUserInteractionEnabled = true
         label.translatesAutoresizingMaskIntoConstraints = false
@@ -110,7 +110,7 @@ final class PodcastHeaderView: UIView {
         ])
     }
     
-
+    
     private func addShowMoreOption() {
         container.addSubview(showMoreLabel)
         

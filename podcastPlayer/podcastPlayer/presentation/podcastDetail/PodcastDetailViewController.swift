@@ -50,7 +50,7 @@ class PodcastDetailViewController: UIViewController, UITableViewDelegate, UITabl
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        view.backgroundColor = .white
+        view.backgroundColor = .systemBackground
         navigationItem.title = viewModel.podcast?.title
         setupTableView()
         setupView()
@@ -145,7 +145,7 @@ extension PodcastDetailViewController: PodcastHeaderViewProtocol {
 }
 
 extension PodcastDetailViewController: PodcastPlayerProtocol {
-  
+    
     func didDismissView(currentEpisode: EpisodeModel, isPlaying: Bool, image: UIImage) {
         openMiniPlayer(currentEpisode: currentEpisode, isPlaying: isPlaying, image: image)
     }

@@ -77,45 +77,45 @@ class CacheManager {
     }
     
     private func getCacheSize() -> Int64 {
-          guard let cacheDirectory = getCacheDirectory() else { return 0 }
-          do {
-              let files = try FileManager.default.contentsOfDirectory(at: cacheDirectory, includingPropertiesForKeys: [.fileSizeKey], options: [])
-              return files.reduce(0) { (total, file) -> Int64 in
-                  let fileSize = (try? file.resourceValues(forKeys: [.fileSizeKey]))?.fileSize ?? 0
-                  return total + Int64(fileSize)
-              }
-          } catch {
-              print("Error getting cache size: \(error.localizedDescription)")
-              return 0
-          }
-      }
-      
-      private func clearOldFilesIfNeeded() {
-          guard getCacheSize() > maxCacheSize, let cacheDirectory = getCacheDirectory() else { return }
-          
-          do {
-              let files = try FileManager.default.contentsOfDirectory(at: cacheDirectory, includingPropertiesForKeys: [.contentModificationDateKey], options: [])
-              
-              let sortedFiles = files.sorted {
-                  let date1 = (try? $0.resourceValues(forKeys: [.contentModificationDateKey]))?.contentModificationDate ?? Date.distantPast
-                  let date2 = (try? $1.resourceValues(forKeys: [.contentModificationDateKey]))?.contentModificationDate ?? Date.distantPast
-                  return date1 < date2
-              }
-              
-              var currentCacheSize = getCacheSize()
-              for file in sortedFiles {
-                  if currentCacheSize <= maxCacheSize {
-                      break
-                  }
-                  let fileSize = (try? file.resourceValues(forKeys: [.fileSizeKey]))?.fileSize ?? 0
-                  try FileManager.default.removeItem(at: file)
-                  currentCacheSize -= Int64(fileSize)
-              }
-          } catch {
-              print("Error clearing old files: \(error.localizedDescription)")
-          }
-      }
-
+        guard let cacheDirectory = getCacheDirectory() else { return 0 }
+        do {
+            let files = try FileManager.default.contentsOfDirectory(at: cacheDirectory, includingPropertiesForKeys: [.fileSizeKey], options: [])
+            return files.reduce(0) { (total, file) -> Int64 in
+                let fileSize = (try? file.resourceValues(forKeys: [.fileSizeKey]))?.fileSize ?? 0
+                return total + Int64(fileSize)
+            }
+        } catch {
+            print("Error getting cache size: \(error.localizedDescription)")
+            return 0
+        }
+    }
+    
+    private func clearOldFilesIfNeeded() {
+        guard getCacheSize() > maxCacheSize, let cacheDirectory = getCacheDirectory() else { return }
+        
+        do {
+            let files = try FileManager.default.contentsOfDirectory(at: cacheDirectory, includingPropertiesForKeys: [.contentModificationDateKey], options: [])
+            
+            let sortedFiles = files.sorted {
+                let date1 = (try? $0.resourceValues(forKeys: [.contentModificationDateKey]))?.contentModificationDate ?? Date.distantPast
+                let date2 = (try? $1.resourceValues(forKeys: [.contentModificationDateKey]))?.contentModificationDate ?? Date.distantPast
+                return date1 < date2
+            }
+            
+            var currentCacheSize = getCacheSize()
+            for file in sortedFiles {
+                if currentCacheSize <= maxCacheSize {
+                    break
+                }
+                let fileSize = (try? file.resourceValues(forKeys: [.fileSizeKey]))?.fileSize ?? 0
+                try FileManager.default.removeItem(at: file)
+                currentCacheSize -= Int64(fileSize)
+            }
+        } catch {
+            print("Error clearing old files: \(error.localizedDescription)")
+        }
+    }
+    
     
     func clearCache(completion: @escaping (Bool) -> Void) {
         guard let cacheDirectory = getCacheDirectory() else {

@@ -19,7 +19,7 @@ class PodcastFullPlayer: UIViewController, UISheetPresentationControllerDelegate
     private var viewModel: PodcastFullPlayerViewModel
     
     weak var delegate: PodcastPlayerProtocol?
-   
+    
     
     private lazy var podCastImageView: UIImageView = {
         let view = UIImageView()
@@ -39,8 +39,8 @@ class PodcastFullPlayer: UIViewController, UISheetPresentationControllerDelegate
     private lazy var backButton: UIButton = {
         let button = UIButton()
         button.translatesAutoresizingMaskIntoConstraints = false
-        button.tintColor = .label
-        let image = UIImage(systemName: "backward.fill",withConfiguration: UIImage.SymbolConfiguration(pointSize: 34,weight: .regular))
+        button.tintColor = .systemIndigo
+        let image = UIImage(systemName: "backward.fill", withConfiguration: UIImage.SymbolConfiguration(pointSize: 34,weight: .regular))
         button.setImage(image, for: .normal)
         return button
     }()
@@ -49,7 +49,7 @@ class PodcastFullPlayer: UIViewController, UISheetPresentationControllerDelegate
     private lazy var nextButton: UIButton = {
         let button = UIButton()
         button.translatesAutoresizingMaskIntoConstraints = false
-        button.tintColor = .label
+        button.tintColor = .systemIndigo
         let image = UIImage(systemName: "forward.fill",withConfiguration: UIImage.SymbolConfiguration(pointSize: 34,weight: .regular))
         button.setImage(image, for: .normal)
         return button
@@ -59,7 +59,7 @@ class PodcastFullPlayer: UIViewController, UISheetPresentationControllerDelegate
     private lazy var playPauseButton: UIButton = {
         let button = UIButton()
         button.translatesAutoresizingMaskIntoConstraints = false
-        button.tintColor = .label
+        button.tintColor = .systemIndigo
         let image = UIImage(systemName: "pause",withConfiguration: UIImage.SymbolConfiguration(pointSize: 34,weight: .regular))
         button.setImage(image, for: .normal)
         return button
@@ -129,7 +129,7 @@ class PodcastFullPlayer: UIViewController, UISheetPresentationControllerDelegate
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        view.backgroundColor = .white
+        view.backgroundColor = .systemBackground
         playPauseButton.addTarget(self, action: #selector(didTapPlayPause), for: .touchUpInside)
         backButton.addTarget(self, action: #selector(didTapBack), for: .touchUpInside)
         nextButton.addTarget(self, action: #selector(didTapNext), for: .touchUpInside)
@@ -142,7 +142,7 @@ class PodcastFullPlayer: UIViewController, UISheetPresentationControllerDelegate
         setupViews()
         setupConstraints()
         
-    sheetPresentationController?.delegate = self
+        sheetPresentationController?.delegate = self
     }
     
     
@@ -214,20 +214,20 @@ class PodcastFullPlayer: UIViewController, UISheetPresentationControllerDelegate
                 }
             }
         }
-    
-                if let cachedURL = viewModel.getCachedEpisodeURL() {
-                    setPlayerUrl(url: cachedURL)
-                } else {
-                    viewModel.downloadEpisode { [weak self] url in
-                        DispatchQueue.main.async {
-                            guard let url = url else { return }
-                            self?.setPlayerUrl(url: url)
-                        }
-                    }
+        
+        if let cachedURL = viewModel.getCachedEpisodeURL() {
+            setPlayerUrl(url: cachedURL)
+        } else {
+            viewModel.downloadEpisode { [weak self] url in
+                DispatchQueue.main.async {
+                    guard let url = url else { return }
+                    self?.setPlayerUrl(url: url)
                 }
+            }
+        }
         
         viewModel.player?.play()
-        playPauseButton.setImage(UIImage(systemName: "pause.fill",withConfiguration: UIImage.SymbolConfiguration(pointSize: 34,weight: .regular)), for: .normal)
+        playPauseButton.setImage(UIImage(systemName: "pause",withConfiguration: UIImage.SymbolConfiguration(pointSize: 34,weight: .regular)), for: .normal)
         
         let interval = CMTime(seconds: 1, preferredTimescale: CMTimeScale(NSEC_PER_SEC))
         viewModel.player?.addPeriodicTimeObserver(forInterval: interval, queue: .main) { [weak self] time in

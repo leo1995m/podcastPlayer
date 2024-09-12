@@ -52,7 +52,7 @@ final class MiniPlayerView: UIView {
     }
     
     private func setupViews() {
-        backgroundColor = .white
+        backgroundColor = .systemBackground
         layer.cornerRadius = 10
         
         addSubview(podcastImageView)
@@ -61,7 +61,7 @@ final class MiniPlayerView: UIView {
     }
     
     private func setupConstraints() {
-
+        
         NSLayoutConstraint.activate([
             podcastImageView.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 8),
             podcastImageView.centerYAnchor.constraint(equalTo: centerYAnchor),
@@ -83,11 +83,11 @@ final class MiniPlayerView: UIView {
         delegate?.didTapMiniPlayer()
     }
     
-
+    
     func configure() {
         podcastImageView.image = viewModel.image
         podcastTitleLabel.text = viewModel.currentEpisode.title
-        playPauseButton.setImage(UIImage(systemName: viewModel.isPlaying ? "pause.fill" : "play.fill"), for: .normal)
+        playPauseButton.setImage(UIImage(systemName: viewModel.isPlaying ? "pause" : "play.fill"), for: .normal)
     }
     
     @objc private func didTapPlayPause() {

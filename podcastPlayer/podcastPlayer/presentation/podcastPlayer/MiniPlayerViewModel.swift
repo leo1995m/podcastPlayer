@@ -14,7 +14,7 @@ class MiniPlayerViewModel {
     var player: AVPlayer? = AudioPlayerManager.shared.player
     var isPlaying: Bool
     var image: UIImage
-
+    
     init(currentEpisode: EpisodeModel, isPlaying: Bool, image: UIImage) {
         self.currentEpisode = currentEpisode
         self.isPlaying = isPlaying

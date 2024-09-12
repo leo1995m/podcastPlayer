@@ -15,18 +15,18 @@ class PodcastFullPlayerViewModel {
     var currentEpisode: EpisodeModel
     var isPlaying: Bool = true
     var player: AVPlayer? = AudioPlayerManager.shared.player
-
+    
     init(episodes: [EpisodeModel], selectedIndex: Int) {
         self.episodes = episodes
         self.selectedIndex = selectedIndex
         currentEpisode = episodes[selectedIndex]
     }
-
+    
     func getCachedEpisodeURL() -> URL? {
         guard let audioUrl = currentEpisode.audioURL else { return nil}
         return service.cacheManager.getCachedPodcastURL(url: audioUrl)
     }
-
+    
     func downloadEpisode(completion: @escaping (URL?) -> Void) {
         guard let audioUrl = currentEpisode.audioURL else { return }
         service.cacheManager.downloadAndCachePodcast(url: audioUrl, completion: completion)
@@ -63,13 +63,13 @@ class PodcastFullPlayerViewModel {
     }
     
     func canGoToPreviousEpisode() -> Bool {
-           if selectedIndex > 0 {
-               selectedIndex -= 1
-               currentEpisode = episodes[selectedIndex]
-               return true
-           } else {
-               print("Já está no primeiro episódio.")
-               return false
-           }
-       }
+        if selectedIndex > 0 {
+            selectedIndex -= 1
+            currentEpisode = episodes[selectedIndex]
+            return true
+        } else {
+            print("Já está no primeiro episódio.")
+            return false
+        }
+    }
 }

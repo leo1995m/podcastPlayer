@@ -46,7 +46,7 @@ class PodcastDescriptionViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        view.backgroundColor = .white
+        view.backgroundColor = .systemBackground
         
         view.addSubview(titleLabel)
         view.addSubview(fullDescription)

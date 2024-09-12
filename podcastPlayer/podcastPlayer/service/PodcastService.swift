@@ -10,7 +10,7 @@ import Foundation
 class PodcastService {
     let parser = RSSParser()
     let cacheManager = CacheManager()
-
+    
     func fetchPodcast(url: String, completion: @escaping (PodcastModel?) -> Void) {
         parser.parseFeed(url: url, completion: completion)
     }

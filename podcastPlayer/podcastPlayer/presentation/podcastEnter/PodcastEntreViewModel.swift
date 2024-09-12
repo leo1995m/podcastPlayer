@@ -46,12 +46,12 @@ class PodcastEnterViewModel {
         return urlHistory[index]
     }
     
-
+    
     func fetchPodcasts(url: String, completion: @escaping (Bool) -> Void) {
         let service = PodcastService()
         service.fetchPodcast(url: url) { [weak self] podcast in
             guard let podcast = podcast else {
-               completion(false)
+                completion(false)
                 return
             }
             self?.podcast = podcast

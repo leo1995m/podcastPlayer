@@ -32,10 +32,10 @@ class RSSParser {
                                  author: item.author,
                                  duration: TimeInterval(item.iTunes?.iTunesDuration ?? 0),
                                  audioURL: item.enclosure?.attributes?.url)
-        
+                    
                 } ?? []
                 
-               
+                
                 let podcast = PodcastModel(title: rssFeed.title,
                                            image: rssFeed.image?.url,
                                            description: rssFeed.description,

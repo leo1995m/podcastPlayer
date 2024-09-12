@@ -32,10 +32,10 @@ class PlayerManagerViewController: UIViewController {
         
         podcastFullPlayer.modalPresentationStyle = .pageSheet
         podcastFullPlayer.delegate = delegate
-            if let sheet = podcastFullPlayer.sheetPresentationController {
-                sheet.detents = [.large()]
-                sheet.prefersGrabberVisible = true
-            }
+        if let sheet = podcastFullPlayer.sheetPresentationController {
+            sheet.detents = [.large()]
+            sheet.prefersGrabberVisible = true
+        }
         podcastFullPlayerIntance = podcastFullPlayer
         parentVC.present(podcastFullPlayer, animated: true, completion: nil)
     }

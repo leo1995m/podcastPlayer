@@ -15,8 +15,8 @@ class PodcastEnterViewController: UIViewController, UITableViewDelegate, UITable
     private lazy var podcastImageView: UIImageView = {
         let imageView = UIImageView()
         imageView.translatesAutoresizingMaskIntoConstraints = false
-        imageView.image = UIImage(systemName: "play.house.fill")
-        imageView.tintColor = .systemBlue
+        imageView.image = UIImage(systemName: "waveform.and.mic")
+        imageView.tintColor = .systemIndigo
         imageView.contentMode = .scaleAspectFit
         return imageView
     }()
@@ -48,8 +48,8 @@ class PodcastEnterViewController: UIViewController, UITableViewDelegate, UITable
         button.translatesAutoresizingMaskIntoConstraints = false
         button.setTitle("Continuar", for: .normal)
         button.titleLabel?.font = UIFont.boldSystemFont(ofSize: 18)
-        button.backgroundColor = .systemBlue
-        button.setTitleColor(.white, for: .normal)
+        button.backgroundColor = .systemIndigo
+        button.setTitleColor(.systemBackground, for: .normal)
         button.layer.cornerRadius = 10
         button.addTarget(self, action: #selector(continueButtonTapped), for: .touchUpInside)
         return button
@@ -74,7 +74,7 @@ class PodcastEnterViewController: UIViewController, UITableViewDelegate, UITable
     
     private lazy var loadingView: UIActivityIndicatorView = {
         let activityIndicator = UIActivityIndicatorView(style: .large)
-        activityIndicator.color = .systemBlue
+        activityIndicator.color = .systemIndigo
         return activityIndicator
     }()
     
@@ -90,7 +90,7 @@ class PodcastEnterViewController: UIViewController, UITableViewDelegate, UITable
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        view.backgroundColor = .white
+        view.backgroundColor = .systemBackground
         
         let tapGesture = UITapGestureRecognizer(target: self, action: #selector(dismissKeyboard))
         tapGesture.cancelsTouchesInView = false
@@ -159,9 +159,9 @@ class PodcastEnterViewController: UIViewController, UITableViewDelegate, UITable
         
         NSLayoutConstraint.activate([
             podcastImageView.centerXAnchor.constraint(equalTo: view.centerXAnchor),
-            podcastImageView.centerYAnchor.constraint(equalTo: view.centerYAnchor, constant: -120),
-            podcastImageView.widthAnchor.constraint(equalToConstant: 80),
-            podcastImageView.heightAnchor.constraint(equalToConstant: 80),
+            podcastImageView.centerYAnchor.constraint(equalTo: view.centerYAnchor, constant: -160),
+            podcastImageView.widthAnchor.constraint(equalToConstant: 150),
+            podcastImageView.heightAnchor.constraint(equalToConstant: 150),
             
             descriptionLabel.topAnchor.constraint(equalTo: podcastImageView.bottomAnchor, constant: 20),
             descriptionLabel.centerXAnchor.constraint(equalTo: view.centerXAnchor),
@@ -257,7 +257,6 @@ class PodcastEnterViewController: UIViewController, UITableViewDelegate, UITable
                 
                 DispatchQueue.main.async {
                     self?.loadingView.stopAnimating()
-                    
                     if success {
                         self?.navigateToNextPage()
                     } else {
