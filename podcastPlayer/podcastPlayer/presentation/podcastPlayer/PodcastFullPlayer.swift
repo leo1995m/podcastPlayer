@@ -203,17 +203,17 @@ class PodcastFullPlayer: UIViewController, UISheetPresentationControllerDelegate
         durantionTimeLabel.text = viewModel.getDuration(episode: currentEpisode)
         
         if let imageUrlString = currentEpisode.imageURL,
+           !imageUrlString.isEmpty,
            let imageURL = URL(string: imageUrlString) {
-            DispatchQueue.global().async {
-                if let data = try? Data(contentsOf: imageURL), let image = UIImage(data: data) {
-                    DispatchQueue.main.async {
-                        self.podCastImageView.image = image
-                    }
-                } else {
-                    self.podCastImageView.isHidden = true
-                }
-            }
+            setImage(imageURL: imageURL)
+        } else if let podcastImageUrlString = viewModel.podcastImageUrl,
+                  !podcastImageUrlString.isEmpty,
+                  let podcastImageUrl = URL(string: podcastImageUrlString) {
+            setImage(imageURL: podcastImageUrl)
+        } else {
+            self.podCastImageView.isHidden = true
         }
+        
         
         if let cachedURL = viewModel.getCachedEpisodeURL() {
             setPlayerUrl(url: cachedURL)
@@ -232,6 +232,17 @@ class PodcastFullPlayer: UIViewController, UISheetPresentationControllerDelegate
         let interval = CMTime(seconds: 1, preferredTimescale: CMTimeScale(NSEC_PER_SEC))
         viewModel.player?.addPeriodicTimeObserver(forInterval: interval, queue: .main) { [weak self] time in
             self?.updateSliderProgress(episode: currentEpisode)
+        }
+    }
+    
+    private func setImage(imageURL: URL) {
+        DispatchQueue.global().async {
+            if let data = try? Data(contentsOf: imageURL), let image = UIImage(data: data) {
+                DispatchQueue.main.async {
+                    self.podCastImageView.isHidden = false
+                    self.podCastImageView.image = image
+                }
+            }
         }
     }
     

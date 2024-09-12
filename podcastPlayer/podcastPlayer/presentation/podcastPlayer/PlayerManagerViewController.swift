@@ -13,10 +13,12 @@ class PlayerManagerViewController: UIViewController {
     private var selectedIndex: Int
     private var podcastFullPlayerIntance: PodcastFullPlayer?
     private var podcastminiPlayerIntance: MiniPlayerView?
+    private var podcastImageUrl: String?
     
-    init(episodes: [EpisodeModel], selectedIndex: Int) {
+    init(episodes: [EpisodeModel], selectedIndex: Int, podcastImageUrl: String?) {
         self.episodes = episodes
         self.selectedIndex = selectedIndex
+        self.podcastImageUrl = podcastImageUrl
         super.init(nibName: nil, bundle: nil)
     }
     
@@ -26,7 +28,7 @@ class PlayerManagerViewController: UIViewController {
     
     func presentFullPlayer(from parentVC: UIViewController, delegate: PodcastPlayerProtocol) {
         
-        let podcastFullPlayerViewModel = PodcastFullPlayerViewModel(episodes: episodes, selectedIndex: selectedIndex)
+        let podcastFullPlayerViewModel = PodcastFullPlayerViewModel(episodes: episodes, selectedIndex: selectedIndex, podcastImageUrl: podcastImageUrl)
         let podcastFullPlayer = PodcastFullPlayer(viewModel: podcastFullPlayerViewModel)
         podcastFullPlayer.configure()
         

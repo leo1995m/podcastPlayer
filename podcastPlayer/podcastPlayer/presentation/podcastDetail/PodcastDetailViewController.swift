@@ -123,7 +123,7 @@ class PodcastDetailViewController: UIViewController, UITableViewDelegate, UITabl
 extension PodcastDetailViewController {
     private func openFullPlayer(selectedIndex: Int) {
         guard let episodes = viewModel.podcast?.episodes else { return }
-        playerManager = PlayerManagerViewController(episodes: episodes, selectedIndex: selectedIndex)
+        playerManager = PlayerManagerViewController(episodes: episodes, selectedIndex: selectedIndex, podcastImageUrl: viewModel.podcast?.image)
         playerManager?.presentFullPlayer(from: self, delegate: self)
     }
     

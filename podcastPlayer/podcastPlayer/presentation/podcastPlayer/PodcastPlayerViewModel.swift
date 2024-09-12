@@ -15,10 +15,12 @@ class PodcastFullPlayerViewModel {
     var currentEpisode: EpisodeModel
     var isPlaying: Bool = true
     var player: AVPlayer? = AudioPlayerManager.shared.player
+    var podcastImageUrl: String?
     
-    init(episodes: [EpisodeModel], selectedIndex: Int) {
+    init(episodes: [EpisodeModel], selectedIndex: Int, podcastImageUrl: String?) {
         self.episodes = episodes
         self.selectedIndex = selectedIndex
+        self.podcastImageUrl = podcastImageUrl
         currentEpisode = episodes[selectedIndex]
     }
     
