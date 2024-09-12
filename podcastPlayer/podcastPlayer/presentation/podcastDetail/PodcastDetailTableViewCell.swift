@@ -42,7 +42,7 @@ class PodcastDetailTableViewCell: UITableViewCell {
     private lazy var podcastInfoLabel: UILabel = {
         let label = UILabel()
         label.translatesAutoresizingMaskIntoConstraints = false
-        label.font = UIFont.boldSystemFont(ofSize: 12)
+        label.font = UIFont.boldSystemFont(ofSize: 13)
         label.numberOfLines = 1
         return label
     }()
