@@ -122,7 +122,25 @@ class PodcastEnterViewController: UIViewController, UITableViewDelegate, UITable
             }
         }
         
-        let menu = UIMenu(title: "Configurações", children: [cleanAction])
+        let lightModeAction = UIAction(title: "Light", image: UIImage(systemName: "sun.max")) { action in
+            if let appDelegate = UIApplication.shared.delegate as? AppDelegate {
+                appDelegate.applyLightModeAppearance()
+            }
+        }
+        
+        let darkModeAction = UIAction(title: "Dark", image: UIImage(systemName: "moon")) { action in
+            if let appDelegate = UIApplication.shared.delegate as? AppDelegate {
+                appDelegate.applyDarkModeAppearance()
+            }
+        }
+        
+        let systemModeAction = UIAction(title: "Sistema", image: UIImage(systemName: "circle.lefthalf.fill")) { action in
+            if let appDelegate = UIApplication.shared.delegate as? AppDelegate {
+                appDelegate.applySystemModeAppearance()
+            }
+        }
+        
+        let menu = UIMenu(title: "Configurações", children: [cleanAction, lightModeAction, darkModeAction, systemModeAction])
         return menu
     }
     
@@ -171,7 +189,7 @@ class PodcastEnterViewController: UIViewController, UITableViewDelegate, UITable
             urlTextField.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -40),
             urlTextField.heightAnchor.constraint(equalToConstant: 40),
             
-            continueButton.topAnchor.constraint(equalTo: urlTextField.bottomAnchor, constant: 20),
+            continueButton.topAnchor.constraint(equalTo: urlTextField.bottomAnchor, constant: 30),
             continueButton.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 40),
             continueButton.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -40),
             continueButton.heightAnchor.constraint(equalToConstant: 50),
