@@ -47,7 +47,10 @@ class PlayerManagerViewController: UIViewController {
     
     func showMiniPlayer(delegate: MiniPlayerProtocol, currentEpisode: EpisodeModel, isPlaying: Bool, image: UIImage) {
         
-        if let window = UIApplication.shared.windows.first {
+        guard let windowScene = UIApplication.shared.connectedScenes.first(where: { $0.activationState == .foregroundActive }) as? UIWindowScene,
+                let window = windowScene.windows.first else {
+              return
+          }
             
             let miniPlayerViewModel = MiniPlayerViewModel(currentEpisode: currentEpisode, isPlaying: isPlaying, image: image)
             let miniPlayer = MiniPlayerView(viewModel: miniPlayerViewModel, frame: CGRect(x: 0, y: window.bounds.height - 100, width: window.bounds.width, height: 80))
@@ -57,6 +60,6 @@ class PlayerManagerViewController: UIViewController {
             window.addSubview(miniPlayer)
         }
     }
-}
+
 
 
