@@ -26,7 +26,7 @@ class PodcastEnterViewController: UIViewController, UITableViewDelegate, UITable
         label.translatesAutoresizingMaskIntoConstraints = false
         label.text = "Insira a URL do podcast:"
         label.textAlignment = .center
-        label.font = UIFont.systemFont(ofSize: 18)
+        label.font = UIFont.boldSystemFont(ofSize: 24)
         return label
     }()
     
@@ -59,8 +59,9 @@ class PodcastEnterViewController: UIViewController, UITableViewDelegate, UITable
         let label = UILabel()
         label.translatesAutoresizingMaskIntoConstraints = false
         label.text = "Ultimos vistos:"
+        label.textAlignment = .left
         label.textAlignment = .center
-        label.font = UIFont.systemFont(ofSize: 18)
+        label.font = UIFont.systemFont(ofSize: 20)
         return label
     }()
     
@@ -176,8 +177,7 @@ class PodcastEnterViewController: UIViewController, UITableViewDelegate, UITable
             continueButton.heightAnchor.constraint(equalToConstant: 50),
             
             historyLabel.topAnchor.constraint(equalTo: continueButton.bottomAnchor, constant: 30),
-            historyLabel.leadingAnchor.constraint(equalTo: view.leadingAnchor),
-            historyLabel.trailingAnchor.constraint(equalTo: view.trailingAnchor),
+            historyLabel.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 20),
             
             historyTableView.topAnchor.constraint(equalTo: historyLabel.bottomAnchor, constant: 20),
             historyTableView.leadingAnchor.constraint(equalTo: view.leadingAnchor),
