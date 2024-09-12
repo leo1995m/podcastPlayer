@@ -20,7 +20,7 @@ PODS:
 DEPENDENCIES:
   - FeedKit (= 9.1.2)
   - Kingfisher (= 7.12.0)
-  - KingfisherWebP
+  - KingfisherWebP (= 1.6.0)
 
 SPEC REPOS:
   trunk:
@@ -35,6 +35,6 @@ SPEC CHECKSUMS:
   KingfisherWebP: bdd91652bb317f976bee2ca192d6a9bb35603026
   libwebp: 1786c9f4ff8a279e4dac1e8f385004d5fc253009
 
-PODFILE CHECKSUM: 90de9441337a67a907c3b11df5c17fbf442b201b
+PODFILE CHECKSUM: 2eb61cc6f53c0d0a5eaf8ff4d96487cf4509ebaf
 
 COCOAPODS: 1.15.2
